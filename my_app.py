@@ -84,7 +84,7 @@ else:
         #f22, f33, fempty = st.columns((1,1,1))
         f11, f22, f33empty = st.columns((1, 1, 1))
             
-        trimestre = f11.multiselect("Choisir les trimestres que vous souhaitez analyser", df.sort_values('month_number')['trimestre'].drop_duplicates().to_list(), df.sort_values('month_number')['trimestre'].drop_duplicates().to_list(),)
+        trimestre = f11.multiselect("Choisir les trimestres que vous souhaitez analyser", df.sort_values('trimestre')['trimestre'].drop_duplicates().to_list(), df.sort_values('trimestre')['trimestre'].drop_duplicates().to_list(),)
         feature = f22.selectbox("Choisir une caractéristique à analyser", category_list , help = "Choisir l'axe des X du tableau de gauche")
         df_data = df[(df['trimestre'].isin(trimestre))]
         
