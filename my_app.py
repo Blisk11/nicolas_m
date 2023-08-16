@@ -31,7 +31,7 @@ auth=('boina-oisif_pro', 'Heokepide01!'); # admin user
 url = "http://"+domain+"/remote.php/dav/files/"+auth[0];
 headers = {"OCS-APIRequest": "true"}
 
-if pwd!= 'j_perrier_mahe':
+if pwd!= 'n_MASSABUAU_capucine':
     st.title('Entrez votre mot de passe SVP.')
 else:
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
@@ -43,15 +43,13 @@ else:
         data = ET.fromstring(r.text);
         list = [el[0].text for el in data];
         for i in list:
-            if 'j_perrier' in i:
+            if 'Nicolas_MASSABUAU_Osteo' in i:
                 path = i
                 print(i)
                 r = requests.request('GET', "http://"+domain+path, auth=auth)
                 temp_df = pd.read_excel(r.content, )
                 df_list.append(temp_df)
     
-    
-        #df = pd.read_excel('j_perrier_dashboard_df.xlsx', engine='openpyxl')
         df = pd.concat(df_list)
         df = df.reset_index()
         min_date = df['date_de_debut'].min().strftime('%d-%m-%Y')
@@ -62,10 +60,7 @@ else:
         st.title("Votre activité du: " + min_date + ' au ' + max_date)
     
         category_list = [ 'ostéo', 'jour_de_la_semaine', 'nouveau_patient', 'statut', 'année_mois', 'trimestre', 'nom_du_mois', 'année', 'debut', '1 visite', 'age_sex', 'age_bin', 'motif_du_rdv', 'civilite', 'distance_bin', 'nbs_rdv_bin', ]
-    #df = pd.read_excel('j_perrier_dashboard_df.xlsx', engine='openpyxl')
-    
-    
-
+     
         #Metrics setting and rendering
                 
         f1, f2= st.columns((1,1))        
