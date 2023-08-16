@@ -84,9 +84,9 @@ else:
         #f22, f33, fempty = st.columns((1,1,1))
         f11, f22, f33empty = st.columns((1, 1, 1))
             
-        nom_du_mois = f11.multiselect("Choisir les trimestres que vous souhaitez analyser", df.sort_values('month_number')['nom_du_mois'].drop_duplicates().to_list(), df.sort_values('month_number')['nom_du_mois'].drop_duplicates().to_list(),)
+        trimestre = f11.multiselect("Choisir les trimestres que vous souhaitez analyser", df.sort_values('month_number')['trimestre'].drop_duplicates().to_list(), df.sort_values('month_number')['trimestre'].drop_duplicates().to_list(),)
         feature = f22.selectbox("Choisir une caractéristique à analyser", category_list , help = "Choisir l'axe des X du tableau de gauche")
-        df_data = df[(df['nom_du_mois'].isin(nom_du_mois))]
+        df_data = df[(df['trimestre'].isin(trimestre))]
         
         f111, f222empty, f333empty = st.columns((1, 1, 1))
         category_list_for_legend_g22 = sorted(set(category_list) - set([feature]))
