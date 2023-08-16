@@ -25,9 +25,7 @@ footer {visibility: hidden;}
 </style>
 """
 pwd1, pwd2= st.columns((0.5 ,1,))
-pwd = pwd1.text_input("Password:", value="")
-
-pwd = st.text_input("Mot de Passe:", value="")
+pwd = pwd1.text_input("Mot de Passe:", value="")
 
 domain = "cloud.leviia.com";
 auth=('boina-oisif_pro', 'Heokepide01!'); # admin user
