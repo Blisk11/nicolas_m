@@ -16,7 +16,7 @@ import json
 
 # streamlit options
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.set_page_config(page_title='Dashboard cabinet Julien Perrier', layout = 'wide', initial_sidebar_state = 'auto')
+st.set_page_config(page_title='Dashboard cabinet Nicolas MASSABUAU', layout = 'wide', initial_sidebar_state = 'auto')
 
 
 hide_streamlit_style = """<style>
@@ -24,6 +24,9 @@ hide_streamlit_style = """<style>
 footer {visibility: hidden;}
 </style>
 """
+pwd1, pwd2= st.columns((0.5 ,1,))
+pwd = pwd1.text_input("Password:", value="")
+
 pwd = st.text_input("Mot de Passe:", value="")
 
 domain = "cloud.leviia.com";
@@ -31,8 +34,8 @@ auth=('boina-oisif_pro', 'Heokepide01!'); # admin user
 url = "http://"+domain+"/remote.php/dav/files/"+auth[0];
 headers = {"OCS-APIRequest": "true"}
 
-if pwd!= 'n_MASSABUAU_capucine':
-    st.title('Entrez votre mot de passe SVP.')
+if pwd != 'n_MASSABUAU_capucine':
+    st.title('Entrez votre mot de passe SVP et appuyer sur entrée')
 else:
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     with st.spinner('Mise à jour des informations, un instant SVP.'):
